@@ -1,4 +1,4 @@
-import { Theme } from "@radix-ui/themes";
+import { ScrollArea, Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
@@ -22,18 +22,21 @@ export default function RootLayout({
         <Theme
           appearance="dark"
           accentColor="crimson"
+          grayColor="mauve"
           panelBackground="solid"
           radius="large"
         >
           <div className=" flex min-h-[100dvh] flex-col">
-            <header className=" sticky top-0 h-16 flex-none border-b bg-current"></header>
+            <header className=" sticky top-0 h-16 flex-none border-b border-[#3a363c] bg-[#191719]"></header>
             <div className=" flex flex-grow">
-              <aside className=" sticky top-16 hidden h-[calc(100dvh_-_8rem)] w-80 overflow-hidden overflow-y-scroll border-b md:block">
-                {children}
+              <aside className=" sticky top-16 hidden h-[calc(100dvh_-_8rem)] w-80  border-b border-[#3a363c]  md:block">
+                <ScrollArea>{children}</ScrollArea>
               </aside>
-              <main className=" flex-grow border-b border-l">{children}</main>
+              <main className=" flex-grow border-b border-[#3a363c] md:border-l ">
+                {children}
+              </main>
             </div>
-            <footer className=" h-16 flex-none">footer</footer>
+            <footer className=" h-16 flex-none"></footer>
           </div>
         </Theme>
       </body>
